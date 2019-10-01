@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_main_padding">15dp</dimen>
+    <dimen name="margin_layout_title">30dp</dimen>
+    <dimen name="main_button_width">150dp</dimen>
+    <dimen name="song_item_icon_size">35dp</dimen>
+    <dimen name="playing_now_layout_margin_bottom">25dp</dimen>
+    <dimen name="playing_now_title_textview_bottom">10dp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+</resources>

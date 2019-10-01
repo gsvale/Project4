@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="@dimen/layout_main_padding">
+
+    <ImageView
+        android:layout_width="@dimen/song_item_icon_size"
+        android:layout_height="@dimen/song_item_icon_size"
+        android:src="@drawable/ic_song_item_icon"
+        android:scaleType="fitCenter"
+        android:tint="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/song_name_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Love generation"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal"
+            android:textSize="@dimen/text_size_15"
+            />
+
+        <TextView
+            android:id="@+id/song_artist_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Bob Sinclar"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="italic"
+            android:textSize="@dimen/text_size_13"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/song_play_bt_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_song_play_icon"
+        android:drawableRight="@drawable/ic_song_play_icon"
+        android:text="@string/play"
+        android:textSize="@dimen/text_size_13"
+        />
+
+</LinearLayout>
