@@ -61,13 +61,11 @@ public class AvailableSongsAdapter extends ArrayAdapter<Song> {
             public void onClick(View v) {
 
                 // Explicit intent -> Go to PlayingNowActivity and pass extra information to intent -> ArraysList of songs and the song to play index
-
                 Intent intent = new Intent(getContext(), PlayingNowActivity.class);
                 intent.putExtra(SongsActivity.SONG_LIST_TAG, songs);
-                intent.putExtra(SongsActivity.SONG_SELECTED_TAG, position);
 
-                // Update mCurrentSongPlaying in SongsActivity
-                ((SongsActivity) getContext()).setCurrentSongPlaying(songItem);
+                // Update index of current song playing
+                Song.setCurrentPlayingSongPosition(position);
 
                 getContext().startActivity(intent);
             }

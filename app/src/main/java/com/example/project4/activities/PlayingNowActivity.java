@@ -2,8 +2,11 @@ package com.example.project4.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.project4.R;
@@ -15,6 +18,8 @@ import java.util.ArrayList;
  * The type Playing now activity.
  */
 public class PlayingNowActivity extends AppCompatActivity {
+
+    private ArrayList<Song> songs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +34,12 @@ public class PlayingNowActivity extends AppCompatActivity {
 
         // Get songs list from bundle and the current playing song index as well, if there is one
         Bundle bundle = getIntent().getExtras();
-        ArrayList<Song> songs = new ArrayList<>();
-        int position = -1;
+
+        // Get index of current song playing
+        int position = Song.getCurrentPlayingSongPosition();
 
         if (bundle != null) {
             songs = bundle.getParcelableArrayList(SongsActivity.SONG_LIST_TAG);
-            position = bundle.getInt(SongsActivity.SONG_SELECTED_TAG);
         }
 
         // // Verify if songs list is not null and its not empty, and position is valid
@@ -71,5 +76,22 @@ public class PlayingNowActivity extends AppCompatActivity {
             noSongPlayingLabelTv.setVisibility(View.VISIBLE);
         }
 
+        Button artistListBt = findViewById(R.id.artist_list_bt_id);
+
+        // Click intent for ARTIST LIST button
+        artistListBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Explicit intent -> Go to ArtistListActivity and pass the songs list as extra
+                Intent intent = new Intent(PlayingNowActivity.this, ArtistListActivity.class);
+                intent.putExtra(SongsActivity.SONG_LIST_TAG, songs);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
+
 }

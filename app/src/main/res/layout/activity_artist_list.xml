@@ -7,6 +7,22 @@
     android:padding="@dimen/layout_main_padding"
     tools:context=".activities.ArtistListActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            style="@style/MainButtonStyle"
+            android:id="@+id/playing_now_bt_id"
+            android:drawableStart="@drawable/ic_playing_now_icon"
+            android:drawableLeft="@drawable/ic_playing_now_icon"
+            android:text="@string/playing_now"
+            />
+
+    </LinearLayout>
+
     <TextView
         style="@style/TitleLabelStyle"
         android:text="@string/artists" />

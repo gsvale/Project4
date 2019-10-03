@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -19,17 +20,14 @@ import java.util.ArrayList;
  */
 public class SongsActivity extends AppCompatActivity {
 
+
+    // This activity is the MAIN and PARENT;
+
     /**
      * The constant SONG_LIST_TAG.
      */
     public static final String SONG_LIST_TAG = "SONG_LIST";
-    /**
-     * The constant SONG_SELECTED_TAG.
-     */
-    public static final String SONG_SELECTED_TAG = "SONG_SELECTED";
 
-
-    private Song mCurrentSongPlaying = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +62,7 @@ public class SongsActivity extends AppCompatActivity {
         availableSongsListView.setAdapter(adapter);
 
         Button playingNowBt = findViewById(R.id.playing_now_bt_id);
-        final Button artistListBt = findViewById(R.id.artist_list_bt_id);
+        Button artistListBt = findViewById(R.id.artist_list_bt_id);
 
         // Click intent for PLAYING NOW button
         playingNowBt.setOnClickListener(new View.OnClickListener() {
@@ -74,11 +72,6 @@ public class SongsActivity extends AppCompatActivity {
                 // Explicit intent -> Go to PlayingNowActivity and pass the songs list as extra and the current song playing, if there's one
                 Intent intent = new Intent(SongsActivity.this, PlayingNowActivity.class);
                 intent.putExtra(SONG_LIST_TAG, songs);
-                if (mCurrentSongPlaying == null) {
-                    intent.putExtra(SONG_SELECTED_TAG, -1);
-                } else {
-                    intent.putExtra(SONG_SELECTED_TAG, songs.indexOf(mCurrentSongPlaying));
-                }
                 startActivity(intent);
             }
         });
@@ -95,16 +88,6 @@ public class SongsActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    /**
-     * Sets current song playing.
-     *
-     * @param song the song
-     */
-    public void setCurrentSongPlaying(Song song)  {
-        mCurrentSongPlaying = song;
     }
 
 }

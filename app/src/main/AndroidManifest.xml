@@ -22,10 +22,22 @@
         </activity>
         <activity
             android:name=".activities.PlayingNowActivity"
-            android:label="@string/playing_now" />
+            android:label="@string/playing_now">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SongsActivity" />
+
+        </activity>
         <activity
             android:name=".activities.ArtistListActivity"
-            android:label="@string/artist_list" />
+            android:label="@string/artist_list">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SongsActivity" />
+
+        </activity>
     </application>
 
 </manifest>

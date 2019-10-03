@@ -12,6 +12,9 @@ public class Song implements Parcelable {
     private String artistName;
     private String songTime;
 
+    // Selected/Playing song index/position
+    private static int SELECTED_SONG_POSITION = -1;
+
     /**
      * Instantiates a new Song.
      *
@@ -50,6 +53,24 @@ public class Song implements Parcelable {
      */
     public String getSongTime() {
         return songTime;
+    }
+
+    /**
+     * Sets current playing song position.
+     *
+     * @param position the song position
+     */
+    public static void setCurrentPlayingSongPosition(int position)  {
+        SELECTED_SONG_POSITION = position;
+    }
+
+    /**
+     * Get current playing song position int.
+     *
+     * @return the int of song position
+     */
+    public static int getCurrentPlayingSongPosition(){
+        return SELECTED_SONG_POSITION;
     }
 
     private Song(Parcel in) {
